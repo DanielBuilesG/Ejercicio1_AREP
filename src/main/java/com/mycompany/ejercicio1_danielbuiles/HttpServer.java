@@ -38,7 +38,10 @@ public class HttpServer {
                 break;
             }
         }
-        outputLine = "<!DOCTYPE html>"
+        outputLine = "HTTP/1.1 200 OK\r\n"   
+                + "Content-Type: text/html\r\n"
+                + "\r\n"
+                + "<!DOCTYPE html>"
                 + "<html>"
                 + "<head>"
                 + "<meta charset=\"UTF-8\">"
@@ -47,7 +50,7 @@ public class HttpServer {
                 + "<body>"
                 + "My Web Site"
                 + "</body>"
-                + "</html>" + inputLine;
+                + "</html>";
         out.println(outputLine);
 
         out.close();
