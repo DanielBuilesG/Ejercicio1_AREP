@@ -29,7 +29,7 @@ public class EchoServer {
         String inputLine, outputLine;
         while ((inputLine = in.readLine()) != null) {
             System.out.println("Mensaje: " + inputLine);
-            outputLine = "Respuesta: " + inputLine;
+            outputLine = "Respuesta:" + inputLine;
             out.println(outputLine);
             if (outputLine.equals("Bye.")) {
                 break;
@@ -40,6 +40,5 @@ public class EchoServer {
         in.close();
         clientSocket.close();
         serverSocket.close();
-        
     }
 }
