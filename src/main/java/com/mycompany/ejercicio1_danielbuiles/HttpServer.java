@@ -13,11 +13,15 @@ public class HttpServer {
     
     private HttpServer(){} 
     
+    private boolean started = false;
+    
     public static HttpServer getInstance(){
         return _instance;
     }
     
-    public static void start(String[] args) throws IOException {
+    
+    
+    public static void main(String[] args) throws IOException {
         ServerSocket serverSocket = null;
         try {
             serverSocket = new ServerSocket(35000);
@@ -57,7 +61,9 @@ public class HttpServer {
                 }
             }
             
-            System.out.println("Uri: " + uriString);
+            //System.out.println("Uri: " + uriString);
+            
+            
             
             if(uriString.startsWith("/hello?")){
                 outputLine = getHello(uriString);
@@ -67,8 +73,12 @@ public class HttpServer {
                 
             }
             System.out.println("outputline:  "+ outputLine);
+            
+            String resource = uriString.substring(0,uriString.indexOf("?"));
+            
+            
             out.println(outputLine);
-
+            
             out.close();
             in.close();
             clientSocket.close();
