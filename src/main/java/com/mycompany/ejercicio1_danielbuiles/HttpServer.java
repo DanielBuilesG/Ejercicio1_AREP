@@ -8,8 +8,16 @@ import java.net.*;
 import java.io.*;
 
 public class HttpServer {
-
-    public static void main(String[] args) throws IOException {
+    
+    private static HttpServer _instance = new HttpServer();
+    
+    private HttpServer(){} 
+    
+    public static HttpServer getInstance(){
+        return _instance;
+    }
+    
+    public static void start(String[] args) throws IOException {
         ServerSocket serverSocket = null;
         try {
             serverSocket = new ServerSocket(35000);
